@@ -3,10 +3,12 @@ while True:
     if nom <0:
         print("nominal must be a positive number")
         continue
-    tol= float(input("tolerance?"))
-    if tol <0:
-        continue
-        print("tolrance must be a positie number")
+    while True:
+        tol= float(input("tolerance?"))
+        if tol <0:
+            print("tolrance must be a positie number")
+            continue
+        break
     break
 
 
@@ -22,4 +24,4 @@ def out_of_tol(readings,nom,tol):
     return bad
 
 print(out_of_tol([10.005,10.02,10.0,9.99,9.75],nom,tol))
-# [10.02,9.75]
+#[10.02,9.75]
