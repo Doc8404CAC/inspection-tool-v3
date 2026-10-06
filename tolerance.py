@@ -12,7 +12,7 @@ def nominal_tol_input(readings):
                 continue
             break
         break
-    out_of_tol(readings,nom,tol)
+    return out_of_tol(readings,nom,tol)
 
 def in_tol(reading,nom,tol):
     return reading <= (nom + tol) and reading >= (nom - tol)
