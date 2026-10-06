@@ -1,16 +1,17 @@
-def nom_input():
-    nom =float(input("nominal dimension "))
-    if nom <0:
-        print("nominal must be a positive number")
-        nom_input() 
-    return nom
-
-def tol_input():
-    tol=float(input("tolerance "))
-    if tol<0:
-        print("tolerance must be a positive number")
-        tol_input()
-    return tol
+def nom_tol_input():
+    while True:
+        nom=float(input("nominal dimension "))
+        if  nom<0:
+            print("nominal dimension must be a positive number")
+            continue
+        break
+    while True:
+        tol=float(input("tolerance "))
+        if tol<0:
+            print("tolerance must be a positive number ")
+            continue
+        break 
+    return nom,tol
 
 def in_tol(reading,nom,tol):
     return reading <= (nom + tol) and reading >= (nom - tol)
