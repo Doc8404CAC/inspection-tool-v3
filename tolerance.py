@@ -25,20 +25,23 @@ def in_tol(reading,nom,tol):
     return reading <= (nom + tol) and reading >= (nom - tol)
 
 def out_of_tol(readings,nom,tol):
-    bad = []
-   # nom,tol = nom_tol_input() 
+    bad = [] 
+    assert nom and tol >=0, "values must be positie numbers"
     for reading in readings:
         if not in_tol(reading,nom,tol):
             bad.append(reading)
     return bad
-
+    
+def testing_out_of_tol(readings,nom,tol):
+    assert out_of_tol(readings,nom,tol)==[10.02,9.75], "out_of_tol did not return expected values"
+    return "this is a test" 
+    
 
 def main(readings):
     nom,tol= nom_tol_input()
     bad = out_of_tol(readings,nom,tol)
-    assert bad==[10.02,9.75], "oh shit it worked"
     return bad
 
 #print(main([10.005,10.02,10.0,9.99,9.75]))
-print(out_of_tol([10.005,10.02,10.0,9.99,9.75],10,.01))
-
+#print(testing_out_of_tol([10.005,10.02,10.0,9.99,9.75],10,.01))
+print(out_of_tol([10.005,10.02,10,9.99,9.75],10,.01))
