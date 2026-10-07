@@ -26,17 +26,19 @@ def in_tol(reading,nom,tol):
 
 def out_of_tol(readings,nom,tol):
     bad = []
-    nom,tol = nom_tol_input() 
+   # nom,tol = nom_tol_input() 
     for reading in readings:
         if not in_tol(reading,nom,tol):
             bad.append(reading)
     return bad
 
 
-def main():
+def main(readings):
     nom,tol= nom_tol_input()
-    out_of_tol(radings,nom,tol)
+    bad = out_of_tol(readings,nom,tol)
+    assert bad==[10.02,9.75], "oh shit it worked"
+    return bad
 
-print(out_of_tol([10.005,10.02,10.0,9.99,9.75]))
-#[10.02,9.75]
+#print(main([10.005,10.02,10.0,9.99,9.75]))
+print(out_of_tol([10.005,10.02,10.0,9.99,9.75],10,.01))
 
