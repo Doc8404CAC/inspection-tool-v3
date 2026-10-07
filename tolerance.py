@@ -1,12 +1,20 @@
 def nom_tol_input():
     while True:
-        nom=float(input("nominal dimension "))
+        try:
+            nom=float(input("nominal dimension "))
+        except ValueError:
+            print("must be a number")
+            continue
         if  nom<0:
             print("nominal dimension must be a positive number")
             continue
         break
     while True:
-        tol=float(input("tolerance "))
+        try:
+            tol=float(input("tolerance "))
+        except ValueError:
+            print("must be a number")
+            continue
         if tol<0:
             print("tolerance must be a positive number ")
             continue
