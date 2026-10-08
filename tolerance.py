@@ -33,8 +33,8 @@ def out_of_tol(readings,nom,tol):
     return bad
     
 def testing_out_of_tol():
-    assert out_of_tol([10.005,10.02,10.0,9.99,9.75],10,.01)==[10.02,9.75]
-    return "this is a test" 
+    assert out_of_tol([10.005,10.02,10.0,9.99,9.75],10,.01)==[10.02,9.75], "out_of_tol faided to reurn proper valuess"
+    return  
     
 
 def main(readings):
@@ -42,5 +42,5 @@ def main(readings):
     bad = out_of_tol(readings,nom,tol)
     return bad
 
+print(testing_out_of_tol())
 print(main([10.005,10.02,10.0,9.99,9.75]))
-
