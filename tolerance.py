@@ -43,7 +43,4 @@ def main(readings):
     return bad
 
 print(main([10.005,10.02,10.0,9.99,9.75]))
-print(testing_out_of_tol())
-print(out_of_tol([10.005,10.02,10,9.99,9.75],-10,.01))
-print(out_of_tol([10.005,9.99,9.75],10,-.01))
 
