@@ -1,3 +1,5 @@
+import copy 
+
 def nom_tol_input():
     while True:
         try:
@@ -42,5 +44,19 @@ def main(readings):
     bad = out_of_tol(readings,nom,tol)
     return bad
 
-print(testing_out_of_tol())
-print(main([10.005,10.02,10.0,9.99,9.75]))
+def testing_stats():
+    assert stats([1,7,3,5])==(1,7,6), "stats failed"
+
+def stats(readings):
+    readings_copy = copy.copy(readings)
+    sort =  sorted(readings_copy)
+    if sort[0]<0:
+        return "values must be positive"
+    min = sort[0]
+    max = sort[-1]
+    range =  max - min
+    return min, max, range
+
+#print(testing_out_of_tol())
+#print(main([10.005,10.02,10.0,9.99,9.75]))
+print(stats([1,7,3,5]))
