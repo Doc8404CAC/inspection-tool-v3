@@ -46,17 +46,18 @@ def main(readings):
 
 def testing_stats():
     assert stats([1,7,3,5])==(1,7,6), "stats failed"
+    return
 
 def stats(readings):
-    readings_copy = copy.copy(readings)
-    sort =  sorted(readings_copy)
+    sort =  sorted(readings)
     if sort[0]<0:
         return "values must be positive"
-    min = sort[0]
-    max = sort[-1]
-    range =  max - min
-    return min, max, range
+    low = sort[0]
+    high = sort[-1]
+    spread =  high - low
+    return low,high,spread
 
 #print(testing_out_of_tol())
 #print(main([10.005,10.02,10.0,9.99,9.75]))
-print(stats([1,7,3,5]))
+#print(testing_stats())
+print(stats([1,7,5,3]))
