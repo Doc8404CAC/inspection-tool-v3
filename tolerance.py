@@ -50,14 +50,16 @@ def testing_stats():
 
 def stats(readings):
     sort =  sorted(readings)
+    if readings == []:
+        raise Exception("no readings present")
     if sort[0]<0:
-        return "values must be positive"
+        raise Exception("values must be positive")
     low = sort[0]
     high = sort[-1]
     spread =  high - low
-    return low,high,spread
+    return low,high,round(spread,4)
 
-#print(testing_out_of_tol())
+print(testing_out_of_tol())
 #print(main([10.005,10.02,10.0,9.99,9.75]))
-#print(testing_stats())
-print(stats([1,7,5,3]))
+print(testing_stats())
+print(stats([1.02,7.0003,5.001,3.1]))
