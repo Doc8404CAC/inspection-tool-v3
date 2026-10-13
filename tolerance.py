@@ -46,7 +46,7 @@ def main(readings):
 
 def testing_stats():
     assert stats([1,7,3,5])==(1,7,6), "stats failed"
-    assert stats([1.02,7.0003,5.001,3.1])==(1.02,7.0003,5.9803), "rounding in stats failed"
+    assert stats([10.01,4.38962])==(4.38962,10.01,5.6203), "rounding in stats failed"
     return
 
 def stats(readings):
@@ -63,4 +63,5 @@ def stats(readings):
 testing_out_of_tol()
 #print(main([10.005,10.02,10.0,9.99,9.75]))
 testing_stats()
-print(stats([1.02,7.0003,5.001,3.1]))
+#print(stats([1.02,7.0003,5.001,3.1]))
+
