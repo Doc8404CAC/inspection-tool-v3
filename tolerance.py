@@ -1,4 +1,4 @@
-import copy 
+ 
 
 def nom_tol_input():
     while True:
@@ -46,20 +46,21 @@ def main(readings):
 
 def testing_stats():
     assert stats([1,7,3,5])==(1,7,6), "stats failed"
+    assert stats([1.02,7.0003,5.001,3.1])==(1.02,7.0003,5.9803), "rounding in stats failed"
     return
 
 def stats(readings):
     sort =  sorted(readings)
     if readings == []:
-        raise Exception("no readings present")
+        raise ValueError("no readings present")
     if sort[0]<0:
-        raise Exception("values must be positive")
+        raise ValueError("values must be positive")
     low = sort[0]
     high = sort[-1]
     spread =  high - low
     return low,high,round(spread,4)
 
-print(testing_out_of_tol())
+testing_out_of_tol()
 #print(main([10.005,10.02,10.0,9.99,9.75]))
-print(testing_stats())
+testing_stats()
 print(stats([1.02,7.0003,5.001,3.1]))
