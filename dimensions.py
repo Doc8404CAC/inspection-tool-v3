@@ -21,7 +21,7 @@ dims={"1":{"type":"countersink",
 "plus_tol": .005,
 "minus_tol": .005,
 "method":"CMM",
-"reading": .3865,
+"reading": .3965,
 },
 
 }
