@@ -1,4 +1,4 @@
- 
+import dimensions 
 
 def nom_tol_input():
     while True:
@@ -64,4 +64,4 @@ testing_out_of_tol()
 print(main([10.005,10.02,10.0,9.99,9.75]))
 testing_stats()
 #print(stats([1.02,7.0003,5.001,3.1]))
-
+print(dimensions.dims)
