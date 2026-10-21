@@ -13,9 +13,9 @@ def nom_tol_input():
         break
     while True:
         try:
-           plus_tol=float(input("plus tolerance"))
+            plus_tol=float(input("plus tolerance "))
         except ValueError:
-            print("must be a number")
+            print("must be a number ")
             continue
         if plus_tol<0:
             print("tolerance must be a positive number ")
@@ -24,12 +24,12 @@ def nom_tol_input():
         
     while True:
         try:
-            minus_tol=float(input("minus tolerance"))
+            minus_tol=float(input("minus tolerance "))
         except ValueError:
-            print("must be a number")
+            print("must be a number ")
             continue
         if minus_tol <0:
-            print("tolerance must be a positie number")
+            print("tolerance must be a positie number ")
             continue
         break 
     return nom,plus_tol,minus_tol
@@ -46,7 +46,7 @@ def out_of_tol(readings,nom,plus_tol,minus_tol):
     return bad
     
 def testing_out_of_tol():
-    assert out_of_tol([10.005,10.02,10.0,9.99,9.75],10,.01,.01)==[10.02,9.75], "out_of_tol faided to reurn proper valuess"
+    assert out_of_tol([10.005,10.02,10.0,9.993,9.75,9.995],10,.01,.005)==[10.02,9.993,9.75], "out_of_tol faided to reurn proper valuess"
     return  
     
 
@@ -73,5 +73,5 @@ def stats(readings):
 
 testing_out_of_tol()
 print(main([10.005,10.02,10.0,9.99,9.75]))
-#testing_stats()
+testing_stats()
 #print(stats([1.02,7.0003,5.001,3.1]))
