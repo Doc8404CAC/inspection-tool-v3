@@ -13,35 +13,46 @@ def nom_tol_input():
         break
     while True:
         try:
-            tol=float(input("tolerance "))
+           plus_tol=float(input("plus tolerance"))
         except ValueError:
             print("must be a number")
             continue
-        if tol<0:
+        if plus_tol<0:
             print("tolerance must be a positive number ")
             continue
+        break
+        
+    while True:
+        try:
+            minus_tol=float(input("minus tolerance"))
+        except ValueError:
+            print("must be a number")
+            continue
+        if minus_tol <0:
+            print("tolerance must be a positie number")
+            continue
         break 
-    return nom,tol
+    return nom,plus_tol,minus_tol
 
-def in_tol(reading,nom,tol):
-    return reading <= (nom + tol) and reading >= (nom - tol)
+def in_tol(reading,nom,plus_tol,minus_tol):
+    return reading <= (nom + plus_tol) and reading >= (nom - minus_tol)
 
-def out_of_tol(readings,nom,tol):
+def out_of_tol(readings,nom,plus_tol,minus_tol):
     bad = [] 
-    assert nom >=0  and tol >=0, "values must be positive numbers"
+    assert nom >=0  and plus_tol >=0 and minus_tol >=0, "values must be positive numbers"
     for reading in readings:
-        if not in_tol(reading,nom,tol):
+        if not in_tol(reading,nom,plus_tol,minus_tol):
             bad.append(reading)
     return bad
     
 def testing_out_of_tol():
-    assert out_of_tol([10.005,10.02,10.0,9.99,9.75],10,.01)==[10.02,9.75], "out_of_tol faided to reurn proper valuess"
+    assert out_of_tol([10.005,10.02,10.0,9.99,9.75],10,.01,.01)==[10.02,9.75], "out_of_tol faided to reurn proper valuess"
     return  
     
 
 def main(readings):
-    nom,tol= nom_tol_input()
-    bad = out_of_tol(readings,nom,tol)
+    nom,plus_tol,minus_tol= nom_tol_input()
+    bad = out_of_tol(readings,nom,plus_tol,minus_tol)
     return bad
 
 def testing_stats():
@@ -62,5 +73,5 @@ def stats(readings):
 
 testing_out_of_tol()
 print(main([10.005,10.02,10.0,9.99,9.75]))
-testing_stats()
+#testing_stats()
 #print(stats([1.02,7.0003,5.001,3.1]))
