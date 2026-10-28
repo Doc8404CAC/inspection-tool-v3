@@ -1,35 +1,27 @@
-def nom_tol_input():
+def get_positive_input(question, error_message):
     while True:
         try:
-            nom = float(input("nominal dimension "))
+            value = float(input(question))
         except ValueError:
             print("must be a number")
             continue
-        if nom < 0:
-            print("nominal dimension must be a positive number")
+        if value < 0:
+            print(error_message)
             continue
-        break
-    while True:
-        try:
-            plus_tol = float(input("plus tolerance "))
-        except ValueError:
-            print("must be a number ")
-            continue
-        if plus_tol < 0:
-            print("tolerance must be a positive number ")
-            continue
-        break
+        return value
 
-    while True:
-        try:
-            minus_tol = float(input("minus tolerance "))
-        except ValueError:
-            print("must be a number ")
-            continue
-        if minus_tol < 0:
-            print("tolerance must be a positie number ")
-            continue
-        break
+
+def nom_tol_input():
+    nom = get_positive_input(
+        "nominal dimension ", "nominal dimension must be a positive number"
+    )
+    plus_tol = get_positive_input(
+        "plus tolerance ", "tolerance must be a positive number"
+    )
+    minus_tol = get_positive_input(
+        "minus tolerance ", "tolerance must be a positive number"
+    )
+
     return nom, plus_tol, minus_tol
 
 
@@ -53,7 +45,7 @@ def testing_out_of_tol():
         10.02,
         9.993,
         9.75,
-    ], "out_of_tol faided to reurn proper valuess"
+    ], "out_of_tol faided to return proper valuess"
 
 
 def main(readings):
